@@ -14,6 +14,7 @@
       justify-content: center;
       height: 100vh;
       margin: 0;
+      overflow: auto;
     }
     h2 {
       color: #333;
@@ -63,6 +64,8 @@
     .table-container ul {
       list-style-type: none;
       padding: 0;
+      max-height: 300px;
+      overflow-y: auto;
     }
     .table-container li {
       padding: 8px;
@@ -95,8 +98,14 @@
       document.getElementById("tableOutput").innerHTML = "";
 
       // Get user input
-      var number = document.getElementById("numberInput").value;
-      var maxMultiplier = document.getElementById("maxMultiplier").value;
+      var number = parseInt(document.getElementById("numberInput").value);
+      var maxMultiplier = parseInt(document.getElementById("maxMultiplier").value);
+
+      // Validate inputs
+      if (isNaN(number) || isNaN(maxMultiplier) || number < 1 || maxMultiplier < 1 || maxMultiplier > 100) {
+        alert('Please enter valid numbers within the specified range.');
+        return;
+      }
 
       // Generate multiplication table and display
       var table = document.getElementById("tableOutput");
