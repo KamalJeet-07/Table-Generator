@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multiplication Table</title>
+  <title>Multiplication Table Generator</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -20,12 +20,13 @@
       color: #333;
       margin-bottom: 20px;
     }
-    .input-container {
+    .input-container, .navigation-container {
       background: #fff;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       padding: 20px;
       margin-bottom: 20px;
+      text-align: center;
     }
     .input-container label {
       display: block;
@@ -39,7 +40,7 @@
       border-radius: 5px;
       font-size: 16px;
     }
-    .input-container button {
+    .input-container button, .navigation-container button {
       background-color: #007bff;
       color: white;
       padding: 10px 20px;
@@ -47,8 +48,9 @@
       border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
+      margin: 5px;
     }
-    .input-container button:hover {
+    .input-container button:hover, .navigation-container button:hover {
       background-color: #0056b3;
     }
     .table-container {
@@ -90,6 +92,10 @@
   <div class="table-container">
     <h3>Multiplication Table</h3>
     <ul id="tableOutput"></ul>
+  </div>
+
+  <div class="navigation-container">
+    <button onclick="location.href='power.html'">Go to Power Calculator</button>
   </div>
 
   <script>
