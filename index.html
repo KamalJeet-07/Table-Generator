@@ -69,3 +69,43 @@
       background-color: #f9f9f9;
       margin: 4px 0;
       border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Multiplication Table Generator</h2>
+  <div class="input-container">
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput" min="1" max="100">
+    <label for="maxMultiplier">Enter maximum multiplier:</label>
+    <input type="number" id="maxMultiplier" min="1" max="100">
+    <button onclick="generateTable()">Generate Table</button>
+  </div>
+  
+  <div class="table-container">
+    <h3>Multiplication Table</h3>
+    <ul id="tableOutput"></ul>
+  </div>
+
+  <script>
+    function generateTable() {
+      // Clear previous table if exists
+      document.getElementById("tableOutput").innerHTML = "";
+
+      // Get user input
+      var number = document.getElementById("numberInput").value;
+      var maxMultiplier = document.getElementById("maxMultiplier").value;
+
+      // Generate multiplication table and display
+      var table = document.getElementById("tableOutput");
+      for (var i = 1; i <= maxMultiplier; i++) {
+        var listItem = document.createElement("li");
+        listItem.textContent = `${number} X ${i} = ${number * i}`;
+        table.appendChild(listItem);
+      }
+    }
+  </script>
+</body>
+</html>
