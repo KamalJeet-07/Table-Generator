@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power Calculator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f8ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      overflow: auto;
+    }
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .power-container, .navigation-container {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .power-container label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    .power-container input {
+      padding: 8px;
+      width: calc(100% - 16px);
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .power-container button, .navigation-container button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 5px;
+    }
+    .power-container button:hover, .navigation-container button:hover {
+      background-color: #0056b3;
+    }
+    .result-container {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 300px;
+    }
+    .result-container h3 {
+      margin-top: 0;
+    }
+    .result-container ul {
+      list-style-type: none;
+      padding: 0;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .result-container li {
+      padding: 8px;
+      background-color: #f9f9f9;
+      margin: 4px 0;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Power Calculator</h2>
+  <div class="power-container">
+    <label for="baseNumber">Enter a base number:</label>
+    <input type="number" id="baseNumber" min="1" max="100">
+    <label for="exponent">Enter an exponent:</label>
+    <input type="number" id="exponent" min="1" max="100">
+    <button onclick="calculatePower()">Calculate Power</button>
+  </div>
+  
+  <div class="result-container">
+    <h3>Power Calculation Result</h3>
+    <ul id="powerOutput"></ul>
+  </div>
+
+  <div class="navigation-container">
+    <button onclick="location.href='multiplication.html'">Go to Multiplication Table Generator</button>
+  </div>
+
+  <script>
+    function calculatePower() {
+      // Clear previous result if exists
+      document.getElementById("powerOutput").innerHTML = "";
+
+      // Get user input
+      var baseNumber = parseInt(document.getElementById("baseNumber").value);
+      var exponent = parseInt(document.getElementById("exponent").value);
+
+      // Validate inputs
+      if (isNaN(baseNumber) || isNaN(exponent) || baseNumber < 1 || exponent < 1 || exponent > 100) {
+        alert('Please enter valid numbers within the specified range.');
+        return;
+      }
+
+      // Calculate power and display
+      var result = Math.pow(baseNumber, exponent);
+      var resultItem = document.createElement("li");
+      resultItem.textContent = `${baseNumber} ^ ${exponent} = ${result}`;
+      document.getElementById("powerOutput").appendChild(resultItem);
+    }
+  </script>
+</body>
+</html>
